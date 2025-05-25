@@ -29,7 +29,7 @@ import { ChatDotRound, Connection, Monitor } from '@element-plus/icons-vue'
 const tools = [
   {
     name: 'ChatGPT',
-    icon: ChatDotRound,
+    icon: 'ChatDotRound',
     description: '使用 ChatGPT API 进行智能对话和内容生成',
     useCases: [
       '代码优化和重构',
@@ -40,7 +40,7 @@ const tools = [
   },
   {
     name: 'Claude',
-    icon: Connection,
+    icon: 'Connection',
     description: '利用 Claude 进行深度技术分析和代码审查',
     useCases: [
       '代码质量审查',
@@ -51,7 +51,7 @@ const tools = [
   },
   {
     name: 'Cursor',
-    icon: Monitor,
+    icon: 'Monitor',
     description: '使用 Cursor IDE 提升开发效率',
     useCases: [
       '智能代码补全',
