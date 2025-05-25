@@ -9,13 +9,15 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
       <el-container>
         <el-header>
           <nav class="nav-menu">
-            <router-link to="/" class="nav-logo">黄冰冰</router-link>
-            <div class="nav-links">
-              <router-link to="/" class="nav-link">首页</router-link>
-              <router-link to="/about" class="nav-link">关于我</router-link>
-              <router-link to="/projects" class="nav-link">项目经验</router-link>
-              <router-link to="/ai-tools" class="nav-link">AI工具</router-link>
-              <router-link to="/contact" class="nav-link">联系方式</router-link>
+            <div class="nav-content">
+              <router-link to="/" class="nav-logo">黄冰冰</router-link>
+              <div class="nav-links">
+                <router-link to="/" class="nav-link">首页</router-link>
+                <router-link to="/about" class="nav-link">关于我</router-link>
+                <router-link to="/projects" class="nav-link">项目经验</router-link>
+                <router-link to="/ai-tools" class="nav-link">AI工具</router-link>
+                <router-link to="/contact" class="nav-link">联系方式</router-link>
+              </div>
             </div>
           </nav>
         </el-header>
@@ -67,9 +69,15 @@ body {
 }
 
 .nav-menu {
-  max-width: 1200px;
-  margin: 0 auto;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-content {
+  max-width: 1200px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -81,11 +89,13 @@ body {
   font-weight: bold;
   color: var(--primary-color);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-links {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
 .nav-link {
@@ -93,6 +103,7 @@ body {
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s;
+  white-space: nowrap;
 
   &:hover {
     color: var(--primary-color);
@@ -113,14 +124,22 @@ body {
 
 // 响应式设计
 @media screen and (max-width: 768px) {
-  .nav-menu {
-    flex-direction: column;
-    padding: 10px;
+  .el-header {
     height: auto;
+    position: relative;
+  }
+
+  .nav-menu {
+    padding: 10px 0;
+  }
+
+  .nav-content {
+    flex-direction: column;
+    gap: 10px;
   }
 
   .nav-logo {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   .nav-links {
@@ -129,13 +148,19 @@ body {
     gap: 10px;
   }
 
-  .el-header {
-    height: auto;
-    position: relative;
-  }
-
   .el-main {
     padding-top: 20px;
+  }
+}
+
+// 平板设备
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .nav-content {
+    padding: 0 15px;
+  }
+
+  .nav-links {
+    gap: 15px;
   }
 }
 
