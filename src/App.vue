@@ -1,66 +1,157 @@
 <script setup lang="ts">
-// 组件逻辑
+import { ElConfigProvider } from 'element-plus'
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 </script>
 
 <template>
-  <div class="app">
-    <el-container>
-      <el-header>
-        <nav class="nav-menu">
-          <router-link to="/" class="nav-item">首页</router-link>
-          <router-link to="/about" class="nav-item">关于我</router-link>
-          <router-link to="/projects" class="nav-item">项目经验</router-link>
-          <router-link to="/ai-tools" class="nav-item">AI工具应用</router-link>
-          <router-link to="/contact" class="nav-item">联系方式</router-link>
-        </nav>
-      </el-header>
-      <el-main>
-        <router-view v-slot="{ Component }">
-          <transition name="fade" mode="out-in">
-            <component :is="Component" />
-          </transition>
-        </router-view>
-      </el-main>
-    </el-container>
-  </div>
+  <el-config-provider :locale="zhCn">
+    <div class="app-container">
+      <el-container>
+        <el-header>
+          <nav class="nav-menu">
+            <router-link to="/" class="nav-logo">黄冰冰</router-link>
+            <div class="nav-links">
+              <router-link to="/" class="nav-link">首页</router-link>
+              <router-link to="/about" class="nav-link">关于我</router-link>
+              <router-link to="/projects" class="nav-link">项目经验</router-link>
+              <router-link to="/ai-tools" class="nav-link">AI工具</router-link>
+              <router-link to="/contact" class="nav-link">联系方式</router-link>
+            </div>
+          </nav>
+        </el-header>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
+      </el-container>
+    </div>
+  </el-config-provider>
 </template>
 
 <style lang="scss">
-.app {
+:root {
+  --primary-color: #409EFF;
+  --text-color: #2c3e50;
+  --bg-color: #f5f7fa;
+  --header-height: 60px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+}
+
+.app-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  color: #ffffff;
+}
+
+.el-container {
+  min-height: 100vh;
+}
+
+.el-header {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  padding: 0;
+  height: var(--header-height);
 }
 
 .nav-menu {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 1rem 0;
-  
-  .nav-item {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
-    
-    &:hover {
-      color: #409EFF;
-    }
-    
-    &.router-link-active {
-      color: #409EFF;
-    }
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+
+  &.router-link-active {
+    color: var(--primary-color);
+    font-weight: 500;
   }
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
+.el-main {
+  padding-top: calc(var(--header-height) + 20px);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
+// 响应式设计
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    padding: 10px;
+    height: auto;
+  }
+
+  .nav-logo {
+    margin-bottom: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .el-header {
+    height: auto;
+    position: relative;
+  }
+
+  .el-main {
+    padding-top: 20px;
+  }
+}
+
+// 暗色主题
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #e5e5e5;
+    --bg-color: #1a1a1a;
+  }
+
+  .el-header {
+    background-color: #242424;
+  }
+
+  .nav-link {
+    color: #e5e5e5;
+  }
 }
 </style>

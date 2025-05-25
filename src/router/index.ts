@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 
 const router = createRouter({
-  history: createWebHistory('./'),
+  history: createWebHistory('/aboutMy/'),
   routes: [
     {
       path: '/',
@@ -28,6 +28,10 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: () => import('../views/Contact.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/'
     }
   ]
 })
