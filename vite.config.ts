@@ -9,7 +9,7 @@ export default defineConfig({
       '@': '/src'
     }
   },
-  base: '/aboutMy/',
+  base: './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
