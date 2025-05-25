@@ -6,7 +6,7 @@
     </div>
 
     <div class="skills">
-      <h2>联系方式</h2>
+      <h2>可点击下方进行相关查看</h2>
       <div class="skills-grid">
         <div class="skill-card" @click="router.push('/about')">
           <el-icon>
