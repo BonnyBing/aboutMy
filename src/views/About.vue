@@ -42,6 +42,14 @@
               <h3>AI/大模型</h3>
               <p>了解LLM基本原理，具备内容安全与Prompt设计经验，能调用DeepSeek等大模型API。</p>
             </div>
+            <div class="skill-category">
+              <h3>爬虫技术</h3>
+              <p>Python爬虫（Scrapy、Selenium、Requests），数据解析（BeautifulSoup、XPath、正则表达式），反爬虫策略（IP代理、请求头模拟、验证码处理），分布式爬虫架构。</p>
+            </div>
+            <div class="skill-category">
+              <h3>AI/模型知识</h3>
+              <p>大语言模型应用（ChatGPT、Claude），Prompt Engineering，AI工具集成。</p>
+            </div>
           </div>
         </div>
 
