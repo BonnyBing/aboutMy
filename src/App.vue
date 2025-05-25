@@ -10,7 +10,6 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
         <el-header>
           <nav class="nav-menu">
             <div class="nav-content">
-              <router-link to="/" class="nav-logo">黄冰冰</router-link>
               <div class="nav-links">
                 <router-link to="/" class="nav-link">首页</router-link>
                 <router-link to="/about" class="nav-link">关于我</router-link>
@@ -80,16 +79,8 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 20px;
-}
-
-.nav-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-color);
-  text-decoration: none;
-  white-space: nowrap;
 }
 
 .nav-links {
@@ -134,12 +125,7 @@ body {
   }
 
   .nav-content {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nav-logo {
-    margin-bottom: 5px;
+    padding: 0 10px;
   }
 
   .nav-links {
