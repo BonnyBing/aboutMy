@@ -312,13 +312,37 @@
 }
 
 .self-evaluation {
+  background: rgba(64, 158, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+
+  h2 {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+  }
+
   p {
     color: #a0a0a0;
     line-height: 1.8;
+    font-size: 1.1rem;
     margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &::before {
+      content: "•";
+      color: var(--primary-color);
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
     }
   }
 }
@@ -346,6 +370,21 @@
         gap: 1rem;
       }
     }
+
+    .self-evaluation {
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+      }
+
+      p {
+        font-size: 1rem;
+        padding-left: 1.2rem;
+      }
+    }
   }
 }
 
@@ -355,6 +394,10 @@
     padding: 1.5rem;
 
     .section {
+      padding: 1.8rem;
+    }
+
+    .self-evaluation {
       padding: 1.8rem;
     }
   }
@@ -375,6 +418,10 @@
       .skill-category {
         background: rgba(64, 158, 255, 0.1);
       }
+    }
+
+    .self-evaluation {
+      background: rgba(64, 158, 255, 0.1);
     }
   }
 }
