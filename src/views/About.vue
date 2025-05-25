@@ -1,14 +1,14 @@
 <template>
   <div class="about">
     <div class="container">
-      <h1 class="title">黄冰冰 - Web前端开发工程师</h1>
+      <h1 class="title">黄冰冰 - 应聘Web前端开发工程师</h1>
 
       <div class="content">
         <div class="profile">
           <h2>个人简介</h2>
           <div class="profile-info">
             <p class="basic-info">
-              <span>应聘职位：Web前端开发工程师</span>
+
               <span>学历背景：软件工程专业</span>
               <span>联系电话：19977957772</span>
               <span>微信号：b1870542488</span>
@@ -144,6 +144,8 @@
 <style lang="scss" scoped>
 .about {
   padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .container {
@@ -153,9 +155,9 @@
 
 .title {
   text-align: center;
-  font-size: 2.5rem;
   margin-bottom: 3rem;
-  background: linear-gradient(45deg, #409EFF, #36D1DC);
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--primary-color), #36cfc9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -187,15 +189,32 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
     margin-bottom: 1.5rem;
+    background: rgba(64, 158, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
 
     span {
       color: #a0a0a0;
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+
+      &::before {
+        content: "•";
+        color: var(--primary-color);
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+      }
     }
   }
 
   .introduction {
     color: #a0a0a0;
     line-height: 1.8;
+    padding: 1.5rem;
+    background: rgba(64, 158, 255, 0.05);
+    border-radius: 8px;
+    font-size: 1.1rem;
   }
 }
 
@@ -205,15 +224,28 @@
   gap: 1.5rem;
 
   .skill-category {
+    background: rgba(64, 158, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
     h3 {
       color: #ffffff;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
       font-size: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--primary-color);
+      display: inline-block;
     }
 
     p {
       color: #a0a0a0;
       line-height: 1.6;
+      font-size: 1.1rem;
     }
   }
 }
@@ -287,6 +319,62 @@
 
     &:last-child {
       margin-bottom: 0;
+    }
+  }
+}
+
+// 响应式设计
+@media screen and (max-width: 768px) {
+  .about {
+    padding: 1rem;
+
+    .title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section {
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+  }
+}
+
+// 平板设备
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .about {
+    padding: 1.5rem;
+
+    .section {
+      padding: 1.8rem;
+    }
+  }
+}
+
+// 暗色主题
+@media (prefers-color-scheme: dark) {
+  .about {
+    .profile-info {
+
+      .basic-info,
+      .introduction {
+        background: rgba(64, 158, 255, 0.1);
+      }
+    }
+
+    .skills-grid {
+      .skill-category {
+        background: rgba(64, 158, 255, 0.1);
+      }
     }
   }
 }

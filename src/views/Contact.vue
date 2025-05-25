@@ -40,7 +40,7 @@
             </el-icon>
             <div class="info-content">
               <h3>GitHub</h3>
-              <a href="https://github.com/BonnyBing" target="_blank">https://github.com/BonnyBing</a>
+              <a href="https://github.com/BonnyBing" target="_blank">Github主页</a>
             </div>
           </div>
 
@@ -51,7 +51,7 @@
             <div class="info-content">
               <h3>技术博客</h3>
               <a href="https://blog.csdn.net/qq_36181045?spm=1000.2115.3001.5343"
-                target="_blank">https://blog.csdn.net/qq_36181045?spm=1000.2115.3001.5343</a>
+                target="_blank">CSDN主页</a>
             </div>
           </div>
         </div>
@@ -82,83 +82,150 @@ const copyText = async (text: string) => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .contact {
   padding: 2rem;
-}
-
-.container {
   max-width: 1200px;
   margin: 0 auto;
-}
 
-.title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  background: linear-gradient(45deg, #409EFF, #36D1DC);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+  .title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--primary-color), #36cfc9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-.contact-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
 
-.contact-info {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
-  border-radius: 10px;
+  .contact-info {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
-  .info-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 2rem;
-
-    &:last-child {
-      margin-bottom: 0;
+    h2 {
+      color: var(--text-color);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 0.5rem;
     }
 
-    .el-icon {
-      font-size: 1.5rem;
-      color: #409EFF;
-      margin-right: 1rem;
-      margin-top: 0.25rem;
-    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      color: #666;
 
-    .info-content {
-      h3 {
-        color: #ffffff;
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
+      .el-icon {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        color: var(--primary-color);
       }
 
-      p,
       a {
-        color: #a0a0a0;
+        color: var(--primary-color);
         text-decoration: none;
-        font-size: 1.1rem;
+        transition: color 0.3s;
 
         &:hover {
-          color: #409EFF;
+          color: #36cfc9;
         }
       }
+    }
+  }
 
-      .copyable {
-        cursor: pointer;
-        position: relative;
+  .contact-form {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
-        &:hover::after {
-          content: '点击复制';
-          position: absolute;
-          right: -60px;
-          top: 50%;
-          transform: translateY(-50%);
-          font-size: 0.8rem;
-          color: #409EFF;
-          opacity: 0.8;
-        }
+    h2 {
+      color: var(--text-color);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 0.5rem;
+    }
+
+    .form-item {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+      }
+
+      .el-input,
+      .el-textarea {
+        width: 100%;
+      }
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
+}
+
+// 响应式设计
+@media screen and (max-width: 768px) {
+  .contact {
+    padding: 1rem;
+
+    .title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .contact-info,
+    .contact-form {
+      padding: 1.5rem;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+// 平板设备
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .contact {
+    padding: 1.5rem;
+
+    .contact-grid {
+      gap: 1.8rem;
+    }
+  }
+}
+
+// 暗色主题
+@media (prefers-color-scheme: dark) {
+  .contact {
+
+    .contact-info,
+    .contact-form {
+      background: #242424;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+      .info-item {
+        color: #a0a0a0;
       }
     }
   }
