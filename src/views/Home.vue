@@ -15,6 +15,14 @@
           <h3>前端开发</h3>
           <p>点击查看我的技术栈</p>
         </div>
+        <div class="skill-card" @click="router.push('/projects')">
+          <el-icon>
+            <Collection />
+          </el-icon>
+          <h3>项目经验</h3>
+          <p>点击查看项目案例</p>
+        </div>
+
 
         <div class="skill-card" @click="router.push('/contact')">
           <el-icon>
@@ -24,13 +32,6 @@
           <p>点击查看联系方式</p>
         </div>
 
-        <div class="skill-card" @click="router.push('/projects')">
-          <el-icon>
-            <Collection />
-          </el-icon>
-          <h3>项目经验</h3>
-          <p>点击查看项目案例</p>
-        </div>
 
         <div class="skill-card" @click="router.push('/ai-tools')">
           <el-icon>
